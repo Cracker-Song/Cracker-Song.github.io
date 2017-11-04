@@ -97,6 +97,91 @@ var _hmt = _hmt || [];
     <div class="outer">
       <section id="main">
   
+    <article id="post-2017阿里巴巴笔试校招附加题2-菜鸟仓库编号" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/04/2017阿里巴巴笔试校招附加题2-菜鸟仓库编号/" class="article-date">
+  <time datetime="2017-11-04T12:50:36.000Z" itemprop="datePublished">2017-11-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/04/2017阿里巴巴笔试校招附加题2-菜鸟仓库编号/">2017阿里巴巴笔试校招附加题2-菜鸟仓库编号</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##阿里巴巴校招笔试附加题2菜鸟仓库货架编号问题<br>题目复述:<br>仓库编号为1-9整数<br>以下为一示例：<br>1|12|123|1234|12345|……|12345678910111213141516|…<br>每一个整数代表一个格子，现给出一格子位置（从左到右第几个）求其编号<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">long</span> <span class="keyword">long</span> _GetLength(<span class="keyword">long</span> <span class="keyword">long</span> digit)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (digit == <span class="number">0</span>)</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    <span class="keyword">long</span> <span class="keyword">long</span> length = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">long</span> <span class="keyword">long</span> i = <span class="number">1</span>; i &lt;= digit; ++i)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span> (i == <span class="number">1</span>)</div><div class="line">            length += <span class="built_in">pow</span>(<span class="number">10</span>, i) - <span class="built_in">pow</span>(<span class="number">10</span>, i - <span class="number">1</span>);</div><div class="line">        <span class="keyword">else</span></div><div class="line">            length += i * (<span class="built_in">pow</span>(<span class="number">10</span>, i) - <span class="built_in">pow</span>(<span class="number">10</span>, i - <span class="number">1</span>));</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> length;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">GetLength</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> digit)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">long</span> <span class="keyword">long</span> length = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">long</span> <span class="keyword">long</span> i = <span class="number">1</span>; i &lt;= digit; ++i)</div><div class="line">        length += (<span class="built_in">pow</span>(<span class="number">10</span>, i) - <span class="built_in">pow</span>(<span class="number">10</span>, i<span class="number">-1</span>)) * (_GetLength(i) + _GetLength(i<span class="number">-1</span>) + i) / <span class="number">2</span>;</div><div class="line">    <span class="keyword">return</span> length;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">GetDigit</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> n)</span></span>&#123;</div><div class="line">    <span class="keyword">long</span> <span class="keyword">long</span> digit = <span class="number">1</span>;</div><div class="line">    <span class="keyword">long</span> <span class="keyword">long</span> tmp = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> (<span class="literal">true</span>)</div><div class="line">    &#123;</div><div class="line">        tmp = GetLength(digit);</div><div class="line">        <span class="keyword">if</span> (tmp &gt; n)</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        ++digit;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> digit;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">GetNumber</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> n)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> digit_n = <span class="number">1</span>;</div><div class="line">    <span class="keyword">while</span> (_GetLength(digit_n) &lt; n) &#123;</div><div class="line">        ++digit_n;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">long</span> <span class="keyword">long</span> tmp = n - _GetLength(digit_n - <span class="number">1</span>);</div><div class="line">    <span class="keyword">if</span> (digit_n == <span class="number">1</span>)</div><div class="line">        <span class="keyword">return</span> <span class="keyword">int</span>(tmp);</div><div class="line">    <span class="keyword">else</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">long</span> <span class="keyword">long</span> result = (tmp + digit_n - <span class="number">1</span>) / digit_n - <span class="number">1</span> + <span class="keyword">int</span>(<span class="built_in">pow</span>(<span class="number">10</span>, digit_n<span class="number">-1</span>));</div><div class="line">        <span class="keyword">int</span> i = digit_n - (tmp - <span class="number">1</span>) % digit_n;</div><div class="line">        <span class="keyword">return</span> result % <span class="keyword">int</span>(<span class="built_in">pow</span>(<span class="number">10</span>, i)) / <span class="keyword">int</span>(<span class="built_in">pow</span>(<span class="number">10</span>, i<span class="number">-1</span>));</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">Get</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> n)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">long</span> <span class="keyword">long</span> digit = GetDigit(n);</div><div class="line">    <span class="keyword">int</span> count = <span class="number">1</span>;</div><div class="line">    <span class="keyword">long</span> <span class="keyword">long</span> tmp = _GetLength(digit - <span class="number">1</span>);</div><div class="line">    n -= GetLength(digit - <span class="number">1</span>);</div><div class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (n &gt; tmp + digit * count)</div><div class="line">        &#123;</div><div class="line">            n -= (tmp + digit * count);</div><div class="line">            ++count;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span></div><div class="line">            <span class="keyword">break</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (n == <span class="number">0</span>)</div><div class="line">        <span class="keyword">return</span> <span class="number">9</span>;</div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="keyword">return</span> GetNumber(n);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">long</span> <span class="keyword">long</span> n = <span class="number">1</span>;</div><div class="line">    <span class="built_in">std</span>::<span class="function"><span class="built_in">string</span> <span class="title">test</span><span class="params">(<span class="string">""</span>)</span></span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">1000</span>; ++i) &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; i; ++j) &#123;</div><div class="line">            test += <span class="built_in">std</span>::to_string(j);</div><div class="line">            <span class="keyword">if</span> ((<span class="keyword">int</span>(test[n<span class="number">-1</span>]) - <span class="string">'0'</span>) != Get(n))</div><div class="line">            &#123;</div><div class="line">                <span class="built_in">printf</span>(<span class="string">"error\n%lld\n%d  %d"</span>, n, <span class="keyword">int</span>(test[n<span class="number">-1</span>]) - <span class="string">'0'</span>, Get(n));</div><div class="line">                <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">            &#125;</div><div class="line">            n += <span class="built_in">std</span>::to_string(j).size();</div><div class="line">            <span class="comment">//printf("%d ", j);</span></div><div class="line">        &#125;</div><div class="line">        <span class="comment">//printf("\n");</span></div><div class="line">    &#125;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, n);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://liangsong.top/2017/11/04/2017阿里巴巴笔试校招附加题2-菜鸟仓库编号/" data-id="cj9lbv60n0000jdfy9nr0tout" class="article-share-link">Share</a>
+      
+
+      
+        <a href="http://liangsong.top/2017/11/04/2017阿里巴巴笔试校招附加题2-菜鸟仓库编号/#disqus_thread" class="article-comment-link">Comments</a>
+      
+
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-OpenCV库的配置" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/04/OpenCV库的配置/" class="article-date">
+  <time datetime="2017-11-04T12:47:47.000Z" itemprop="datePublished">2017-11-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/04/OpenCV库的配置/">OpenCV库的配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://liangsong.top/2017/11/04/OpenCV库的配置/" data-id="cj9lbv6100002jdfy8klq4x9c" class="article-share-link">Share</a>
+      
+
+      
+        <a href="http://liangsong.top/2017/11/04/OpenCV库的配置/#disqus_thread" class="article-comment-link">Comments</a>
+      
+
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-自建机器学习库-矩阵" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/10/12/自建机器学习库-矩阵/" class="article-date">
@@ -218,7 +303,7 @@ Matrix&lt;T&gt; Shuffle() const;
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://liangsong.top/2017/10/12/自建机器学习库-矩阵/" data-id="cj9lbo41c0005wefy8qy8rc4z" class="article-share-link">Share</a>
+        <a data-url="http://liangsong.top/2017/10/12/自建机器学习库-矩阵/" data-id="cj9lbv61b0006jdfyfgjxog6c" class="article-share-link">Share</a>
       
 
       
@@ -314,7 +399,7 @@ class perceptron:
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://liangsong.top/2017/03/11/统计学习方法-李航-第二章习题/" data-id="cj9lbo40z0001wefycndno9wn" class="article-share-link">Share</a>
+        <a data-url="http://liangsong.top/2017/03/11/统计学习方法-李航-第二章习题/" data-id="cj9lbv61d0007jdfyfid8zrts" class="article-share-link">Share</a>
       
 
       
@@ -360,7 +445,7 @@ class perceptron:
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://liangsong.top/2017/03/11/统计学习方法-李航-第一章习题/" data-id="cj9lbo4170004wefyj36eo55q" class="article-share-link">Share</a>
+        <a data-url="http://liangsong.top/2017/03/11/统计学习方法-李航-第一章习题/" data-id="cj9lbv6180005jdfytjscjebw" class="article-share-link">Share</a>
       
 
       
@@ -440,7 +525,7 @@ class perceptron:
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://liangsong.top/2017/03/11/机器学习-周志华-第一章习题/" data-id="cj9lbo4160003wefy2uxyp24p" class="article-share-link">Share</a>
+        <a data-url="http://liangsong.top/2017/03/11/机器学习-周志华-第一章习题/" data-id="cj9lbv60w0001jdfyztr0mjxz" class="article-share-link">Share</a>
       
 
       
@@ -483,7 +568,7 @@ class perceptron:
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://liangsong.top/2017/03/11/about/" data-id="cj9lbo4150002wefy8vwvq1kb" class="article-share-link">Share</a>
+        <a data-url="http://liangsong.top/2017/03/11/about/" data-id="cj9lbv6120003jdfyk4jq8l0i" class="article-share-link">Share</a>
       
 
       
@@ -534,7 +619,7 @@ class perceptron:
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://liangsong.top/2017/03/11/hello-world/" data-id="cj9lbo40q0000wefydoxngsgq" class="article-share-link">Share</a>
+        <a data-url="http://liangsong.top/2017/03/11/hello-world/" data-id="cj9lbv6140004jdfys1yetk26" class="article-share-link">Share</a>
       
 
       
@@ -564,7 +649,7 @@ class perceptron:
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">5</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -576,6 +661,14 @@ class perceptron:
       <ul>
         
           <li>
+            <a href="/2017/11/04/2017阿里巴巴笔试校招附加题2-菜鸟仓库编号/">2017阿里巴巴笔试校招附加题2-菜鸟仓库编号</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/04/OpenCV库的配置/">OpenCV库的配置</a>
+          </li>
+        
+          <li>
             <a href="/2017/10/12/自建机器学习库-矩阵/">自建机器学习库-矩阵</a>
           </li>
         
@@ -585,14 +678,6 @@ class perceptron:
         
           <li>
             <a href="/2017/03/11/统计学习方法-李航-第一章习题/">统计学习方法 李航 第一章习题</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/11/机器学习-周志华-第一章习题/">机器学习 周志华 第一章习题</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/11/about/">about</a>
           </li>
         
       </ul>
