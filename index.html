@@ -97,6 +97,48 @@ var _hmt = _hmt || [];
     <div class="outer">
       <section id="main">
   
+    <article id="post-论文笔记：A-Novel-Multi-Detector-Fusion-Framework-for-Multi-Object-Tracking" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/12/论文笔记：A-Novel-Multi-Detector-Fusion-Framework-for-Multi-Object-Tracking/" class="article-date">
+  <time datetime="2017-12-11T17:34:43.000Z" itemprop="datePublished">2017-12-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/12/论文笔记：A-Novel-Multi-Detector-Fusion-Framework-for-Multi-Object-Tracking/">论文笔记：A Novel Multi-Detector Fusion Framework for Multi-Object Tracking</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://liangsong.top/2017/12/12/论文笔记：A-Novel-Multi-Detector-Fusion-Framework-for-Multi-Object-Tracking/" data-id="cjb2lnqjd000blafy7jank3c3" class="article-share-link">Share</a>
+      
+
+      
+        <a href="http://liangsong.top/2017/12/12/论文笔记：A-Novel-Multi-Detector-Fusion-Framework-for-Multi-Object-Tracking/#disqus_thread" class="article-comment-link">Comments</a>
+      
+
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Jupyter-notebook" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/12/08/Jupyter-notebook/" class="article-date">
@@ -125,7 +167,7 @@ var _hmt = _hmt || [];
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://liangsong.top/2017/12/08/Jupyter-notebook/" data-id="cjawzyaaj0000gqfyh3obe1jn" class="article-share-link">Share</a>
+        <a data-url="http://liangsong.top/2017/12/08/Jupyter-notebook/" data-id="cjb2lnqis0001lafyythv61s2" class="article-share-link">Share</a>
       
 
       
@@ -167,7 +209,7 @@ var _hmt = _hmt || [];
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://liangsong.top/2017/11/11/使用kcf算法进行目标追踪/" data-id="cjawzyaaw0005gqfyleuqg0oc" class="article-share-link">Share</a>
+        <a data-url="http://liangsong.top/2017/11/11/使用kcf算法进行目标追踪/" data-id="cjb2lnqj50007lafycwhmz0vf" class="article-share-link">Share</a>
       
 
       
@@ -204,12 +246,39 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="使用-Matlab-OpenCV-进行摄像头标定"><a href="#使用-Matlab-OpenCV-进行摄像头标定" class="headerlink" title="使用 Matlab+OpenCV 进行摄像头标定"></a>使用 Matlab+OpenCV 进行摄像头标定</h2><h3 id="OpenCV配置"><a href="#OpenCV配置" class="headerlink" title="OpenCV配置"></a>OpenCV配置</h3><p>配置可见<a href="http://liangsong.top/2017/11/04/OpenCV%E5%BA%93%E7%9A%84%E9%85%8D%E7%BD%AE/">OpenCV</a></p>
+<h3 id="Matlab环境配置"><a href="#Matlab环境配置" class="headerlink" title="Matlab环境配置"></a>Matlab环境配置</h3><p>需要安装Matlab runtime</p>
+<h3 id="张正友方法简介"><a href="#张正友方法简介" class="headerlink" title="张正友方法简介"></a>张正友方法简介</h3><p>张正友标定法是指张正友教授1998年提出的单平面棋盘格的摄像机标定方法。文中提出的方法介于传统标定法和自标定法之间，但克服了传统标定法需要的高精度标定物的缺点，而仅需使用一个打印出来的棋盘格就可以。同时也相对于自标定而言，提高了精度，便于操作。因此张氏标定法被广泛应用于计算机视觉方面。  </p>
+<p>张正友方法实际是求解三维世界坐标系中的坐标 $[X, Y, Z, 1]^T$ 到二维像素平面 $[u,v,1]^T$的单应关系。<br><img src="张正友1.png" alt=""><br><img src="张正友2.png" alt=""><br>具体推导可参考<a href="http://blog.csdn.net/humanking7/article/details/44756235" target="_blank" rel="external">张正友方法推导详情</a></p>
+<h3 id="具体代码实现"><a href="#具体代码实现" class="headerlink" title="具体代码实现"></a>具体代码实现</h3><ul>
+<li><p>使用OpenCV打开摄像头拍摄照片</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">TakePhoto</span><span class="params">(<span class="keyword">char</span> *path, <span class="keyword">int</span> choice)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">char</span> keyCode;</div><div class="line">    <span class="function">VideoCapture <span class="title">capture</span><span class="params">(choice)</span></span>;<span class="comment">//打开制定摄像头</span></div><div class="line">    <span class="keyword">int</span> count = <span class="number">1</span>;</div><div class="line">    <span class="keyword">if</span> (!capture.isOpened())</div><div class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">    Mat frame;</div><div class="line">    <span class="keyword">while</span> (keyCode = cvWaitKey(<span class="number">30</span>))</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span> (keyCode == <span class="number">27</span>)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        &#125;<span class="comment">//如果按esc键退出拍摄</span></div><div class="line"></div><div class="line">        capture &gt;&gt; frame;</div><div class="line">        imshow(<span class="string">"读取视频"</span>, frame);</div><div class="line">        <span class="keyword">if</span> (keyCode == <span class="number">13</span>)</div><div class="line">        &#123;<span class="comment">//按enter拍摄图片</span></div><div class="line">            <span class="built_in">std</span>::<span class="built_in">string</span> name = <span class="built_in">std</span>::<span class="built_in">string</span>(path) + <span class="string">"chess"</span> + <span class="built_in">std</span>::to_string(count) + <span class="string">".jpg"</span>;</div><div class="line">            imwrite(name, frame);<span class="comment">//将图片保存为jpg文件</span></div><div class="line">            ++count;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用 Matlab/OpenCV 获取图片中的棋盘格点</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p>Matlab</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">for i = 1:5</div><div class="line">  imageFileName = sprintf(&apos;image%d.tif&apos;, i);</div><div class="line">  imageFileNames&#123;i&#125; = fullfile(matlabroot, &apos;toolbox&apos;, &apos;vision&apos;,...</div><div class="line">          &apos;visiondata&apos;,&apos;calibration&apos;,&apos;webcam&apos;,imageFileName);</div><div class="line">end</div><div class="line">% 读取图片</div><div class="line">[imagePoints, boardSize, imagesUsed] = detectCheckerboardPoints(imageFileNames);</div><div class="line">% 获取棋盘格点坐标</div><div class="line">imageFileNames = imageFileNames(imagesUsed);</div><div class="line">for i = 1:numel(imageFileNames)</div><div class="line">  I = imread(imageFileNames&#123;i&#125;);</div><div class="line">  subplot(2, 2, i);</div><div class="line">  imshow(I); hold on; plot(imagePoints(:,1,i), imagePoints(:,2,i), &apos;ro&apos;);</div><div class="line">end</div><div class="line">% 显示棋盘格点</div></pre></td></tr></table></figure>
+</li>
+<li><p>OpenCV + C++</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; FILES_NUMBER; ++i) &#123;</div><div class="line">        <span class="built_in">std</span>::<span class="built_in">string</span> file_name = FILE_PATH + FILE_NAME + <span class="built_in">std</span>::to_string(i + <span class="number">1</span>) + FILE_TYPE;</div><div class="line">        Mat image = imread(file_name);</div><div class="line">        <span class="comment">//按顺序读取图片</span></div><div class="line"></div><div class="line">        <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;Point2f&gt; chess_points_tmp;</div><div class="line">        findChessboardCorners(image, board_size, chess_points_tmp);<span class="comment">//寻找棋盘格点</span></div><div class="line"></div><div class="line">        <span class="keyword">if</span> (i == <span class="number">0</span>) &#123;</div><div class="line">            image_size.height = image.rows;</div><div class="line">            image_size.width = image.cols;</div><div class="line">        &#125;<span class="comment">//读取图片大小</span></div><div class="line"></div><div class="line">        Mat view_gray;</div><div class="line">        cvtColor(image, view_gray, CV_RGB2GRAY);</div><div class="line">        find4QuadCornerSubpix(view_gray, chess_points_tmp, Size(<span class="number">5</span>,<span class="number">5</span>)); <span class="comment">//对粗提取的角点进行精确化</span></div><div class="line">        chess_points.push_back(chess_points_tmp);</div><div class="line"></div><div class="line"><span class="comment">//        std::cout &lt;&lt; chess_points_tmp.size() &lt;&lt; std::endl;</span></div><div class="line"><span class="comment">//        Mat show_chess = image;</span></div><div class="line"><span class="comment">//        drawChessboardCorners(show_chess, board_size, chess_points_tmp, false);</span></div><div class="line"><span class="comment">//        imshow("Camera Calibration", show_chess);//显示图片</span></div><div class="line"><span class="comment">//        waitKey(3000);//暂停5S</span></div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用OpenCV计算变换矩阵</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;Point3f&gt;&gt; real_pos;<span class="comment">//假设棋盘处于z = 0平面，以棋盘右上角格点为原点，横为x， 纵为y</span></div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; FILES_NUMBER; ++k) &#123;</div><div class="line"></div><div class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;Point3f&gt; tmp_points;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; board_size.height; ++i) &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; board_size.width; ++j) &#123;</div><div class="line">            Point3f real_point;</div><div class="line">            real_point.z = <span class="number">0</span>;</div><div class="line">            real_point.x = i * square_size.width;</div><div class="line">            real_point.y = j * square_size.height;</div><div class="line">            tmp_points.push_back(real_point);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    real_pos.push_back(tmp_points);</div><div class="line">&#125;</div><div class="line">Mat cameraMatrix = Mat(<span class="number">3</span>, <span class="number">3</span>, CV_64FC1, Scalar::all(<span class="number">0</span>)); <span class="comment">/* 摄像机内参数矩阵 */</span></div><div class="line">Mat distCoeffs = Mat(<span class="number">1</span>, <span class="number">5</span>, CV_64FC1, Scalar::all(<span class="number">0</span>)); <span class="comment">/* 摄像机的5个畸变系数：k1,k2,p1,p2,k3 */</span></div><div class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;Mat&gt; tvecsMat;  <span class="comment">/* 每幅图像的平移向量 */</span></div><div class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;Mat&gt; rvecsMat; <span class="comment">/* 每幅图像的旋转向量 */</span></div><div class="line"></div><div class="line">calibrateCamera(real_pos, chess_points, image_size, cameraMatrix, distCoeffs, rvecsMat, tvecsMat, <span class="number">0</span>);</div><div class="line"><span class="comment">//计算变换矩阵</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>从像素坐标计算世界坐标</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">CvMat *rotation = cvCreateMat(3, 3, CV_64FC1), tmp = rotation_matrix;</div><div class="line">cvRodrigues2(&amp;tmp, rotation);//将旋转向量转换为旋转矩阵</div><div class="line">cv::Mat H(cvarrToMat(rotation));</div><div class="line">cv::Mat translation_ve;//平移向量</div><div class="line">translate_matrix.copyTo(translation_ve);</div><div class="line">H.at&lt;double&gt;(0, 2) = translation_ve.at&lt;double&gt;(0, 0);</div><div class="line">H.at&lt;double&gt;(1, 2) = translation_ve.at&lt;double&gt;(1, 0);</div><div class="line">H.at&lt;double&gt;(2, 2) = translation_ve.at&lt;double&gt;(2, 0);</div><div class="line">cv::Mat hu;</div><div class="line">hu = camera_matrix * H;</div><div class="line">cv::Mat hu2 = hu.inv();</div><div class="line">double a1, a2, a3, a4, a5, a6, a7, a8, a9;</div><div class="line">a1 = hu2.at&lt;double&gt;(0, 0);</div><div class="line">a2 = hu2.at&lt;double&gt;(0, 1);</div><div class="line">a3 = hu2.at&lt;double&gt;(0, 2);</div><div class="line">a4 = hu2.at&lt;double&gt;(1, 0);</div><div class="line">a5 = hu2.at&lt;double&gt;(1, 1);</div><div class="line">a6 = hu2.at&lt;double&gt;(1, 2);</div><div class="line">a7 = hu2.at&lt;double&gt;(2, 0);</div><div class="line">a8 = hu2.at&lt;double&gt;(2, 1);</div><div class="line">a9 = hu2.at&lt;double&gt;(2, 2);</div><div class="line">Point2f tmp_point;</div><div class="line">double xe = point.x;//图像中点坐标x</div><div class="line">double ye = point.y;//图像中点坐标y</div><div class="line">tmp_point.x = (a1*xe + a2*ye + a3) / (a7*xe + a8*ye + a9);//世界坐标中x值</div><div class="line">tmp_point.y = (a4*xe + a5*ye + a6) / (a7*xe + a8*ye + a9);//世界坐标中Y值</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>具体代码可见<a href="https://github.com/ML-Song/CameraCalibration" target="_blank" rel="external">Github</a></p>
+
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://liangsong.top/2017/11/11/使用张正友方法进行相机标定/" data-id="cjawzyaax0006gqfyocqarkhu" class="article-share-link">Share</a>
+        <a data-url="http://liangsong.top/2017/11/11/使用张正友方法进行相机标定/" data-id="cjb2lnqj00004lafyt4ovizvw" class="article-share-link">Share</a>
       
 
       
@@ -252,7 +321,7 @@ var _hmt = _hmt || [];
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://liangsong.top/2017/11/04/2017阿里巴巴笔试校招附加题2-菜鸟仓库编号/" data-id="cjawzyaan0001gqfyf6maicbj" class="article-share-link">Share</a>
+        <a data-url="http://liangsong.top/2017/11/04/2017阿里巴巴笔试校招附加题2-菜鸟仓库编号/" data-id="cjb2lnqim0000lafyng5sktcw" class="article-share-link">Share</a>
       
 
       
@@ -289,12 +358,28 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="OpenCV在Mac和Windows上的配置"><a href="#OpenCV在Mac和Windows上的配置" class="headerlink" title="OpenCV在Mac和Windows上的配置"></a>OpenCV在Mac和Windows上的配置</h2><h3 id="在Mac-OS上配置OpenCV开发环境"><a href="#在Mac-OS上配置OpenCV开发环境" class="headerlink" title="在Mac OS上配置OpenCV开发环境"></a>在Mac OS上配置OpenCV开发环境</h3><h4 id="C-with-Xcode"><a href="#C-with-Xcode" class="headerlink" title="C++ with Xcode"></a>C++ with Xcode</h4><ul>
+<li><p>使用brew安装OpenCV</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install opencv3</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用Cmake本地编译<br>使用Git下载OpenCV下载源代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/Itseez/opencv.git --depth=1</div><div class="line">git clone https://github.com/Itseez/opencv_contrib --depth=1</div></pre></td></tr></table></figure>
+<p>下载<a href="https://cmake.org" target="_blank" rel="external">Cmake</a>合适版本<br><img src="OpenCV1.png" alt=""><br>Where is the source code选择OpenCV源代码文件夹<br>Where to build 选择输出文件夹<br>多次点击Configure直到没有红色选项（如果使用Xcode则选择Xcode）<br>完成后找到 OPENCV_EXTRA_MODULES_PATH 选项选择为所下载的 OpenCV-contrib文件夹下的 modules 文件夹<br>点击 Generate 开始编译<br>生成完成后在命令行中到达输出文件夹，运行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">make -j4</div><div class="line">make install</div></pre></td></tr></table></figure>
+<p>在Xcode设置 Search Paths 中 Header path 为<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Libeary path 为```/usr/local/lib</div></pre></td></tr></table></figure></p>
+<p>详细可参考<a href="https://ronaldzzz.blogspot.com/2017/05/macmacos-sierra-cmake-opencv-32-with.html" target="_blank" rel="external">MacOS Sierra 使用CMake 編譯OpenCV 3.2 With Contrib (for C++)</a></p>
+<h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install opencv-contrib-python</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>详细可参考<a href="https://pypi.python.org/pypi/opencv-contrib-python" target="_blank" rel="external">opencv-contrib-python</a></p>
+<h2 id="在Windows上配置OpenCV开发环境"><a href="#在Windows上配置OpenCV开发环境" class="headerlink" title="在Windows上配置OpenCV开发环境"></a>在Windows上配置OpenCV开发环境</h2><h3 id="C-with-Visual-Studio-2013"><a href="#C-with-Visual-Studio-2013" class="headerlink" title="C++ with Visual Studio 2013"></a>C++ with Visual Studio 2013</h3><p>基本同Mac OS配置，下载Cmake及OpenCV源码<br>唯一不同在于在Configure 之前需要选择VS版本<br>在Generate生成完成后点击Open Project使用VS打开按F5编译工程，需要时间可能较长<br>编译完成后将<code>bin/build</code>加入系统环境变量</p>
+<p>注意在windows下使用Cmake生成时可能会出现ippicv下载错误，此时可以选择自行下载放入指定文件夹<br><a href="http://blog.csdn.net/kelvin_yan/article/details/53635641" target="_blank" rel="external">ippicv下载链接</a><br><a href="http://blog.csdn.net/hjl240/article/details/52002749" target="_blank" rel="external">具体可参考</a><br>在使用VS编译OpenCV项目时针对release模式和debug模式使用的dll文件不同，使用debug模式时所有dll文件均需要在文件名最后加一个d</p>
+
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://liangsong.top/2017/11/04/OpenCV库的配置/" data-id="cjawzyaar0002gqfyt1fl5u6z" class="article-share-link">Share</a>
+        <a data-url="http://liangsong.top/2017/11/04/OpenCV库的配置/" data-id="cjb2lnqiw0002lafyh7rw6wct" class="article-share-link">Share</a>
       
 
       
@@ -430,7 +515,7 @@ Matrix&lt;T&gt; Shuffle() const;
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://liangsong.top/2017/10/12/自建机器学习库-矩阵/" data-id="cjawzyab3000agqfy4q7v0jrg" class="article-share-link">Share</a>
+        <a data-url="http://liangsong.top/2017/10/12/自建机器学习库-矩阵/" data-id="cjb2lnqjb000alafyqx566w13" class="article-share-link">Share</a>
       
 
       
@@ -526,7 +611,7 @@ class perceptron:
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://liangsong.top/2017/03/11/统计学习方法-李航-第二章习题/" data-id="cjawzyab20009gqfy2gpylwdc" class="article-share-link">Share</a>
+        <a data-url="http://liangsong.top/2017/03/11/统计学习方法-李航-第二章习题/" data-id="cjb2lnqja0009lafy06re3q1a" class="article-share-link">Share</a>
       
 
       
@@ -572,7 +657,7 @@ class perceptron:
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://liangsong.top/2017/03/11/统计学习方法-李航-第一章习题/" data-id="cjawzyab10008gqfyuj8da5qb" class="article-share-link">Share</a>
+        <a data-url="http://liangsong.top/2017/03/11/统计学习方法-李航-第一章习题/" data-id="cjb2lnqj80008lafyfqer6vp2" class="article-share-link">Share</a>
       
 
       
@@ -652,54 +737,11 @@ class perceptron:
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://liangsong.top/2017/03/11/机器学习-周志华-第一章习题/" data-id="cjawzyaaz0007gqfyiwz4x78n" class="article-share-link">Share</a>
+        <a data-url="http://liangsong.top/2017/03/11/机器学习-周志华-第一章习题/" data-id="cjb2lnqj30006lafyc4w6bz7f" class="article-share-link">Share</a>
       
 
       
         <a href="http://liangsong.top/2017/03/11/机器学习-周志华-第一章习题/#disqus_thread" class="article-comment-link">Comments</a>
-      
-
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-about" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/11/about/" class="article-date">
-  <time datetime="2017-03-11T10:36:47.000Z" itemprop="datePublished">2017-03-11</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/11/about/">about</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="About"><a href="#About" class="headerlink" title="About"></a>About</h1><p>Published by Song.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://liangsong.top/2017/03/11/about/" data-id="cjawzyaat0003gqfyn17e01uj" class="article-share-link">Share</a>
-      
-
-      
-        <a href="http://liangsong.top/2017/03/11/about/#disqus_thread" class="article-comment-link">Comments</a>
       
 
       
@@ -729,7 +771,7 @@ class perceptron:
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">5</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -739,6 +781,10 @@ class perceptron:
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/12/12/论文笔记：A-Novel-Multi-Detector-Fusion-Framework-for-Multi-Object-Tracking/">论文笔记：A Novel Multi-Detector Fusion Framework for Multi-Object Tracking</a>
+          </li>
         
           <li>
             <a href="/2017/12/08/Jupyter-notebook/">Jupyter notebook</a>
@@ -754,10 +800,6 @@ class perceptron:
         
           <li>
             <a href="/2017/11/04/2017阿里巴巴笔试校招附加题2-菜鸟仓库编号/">2017阿里巴巴笔试校招附加题2-菜鸟仓库编号</a>
-          </li>
-        
-          <li>
-            <a href="/2017/11/04/OpenCV库的配置/">OpenCV库的配置</a>
           </li>
         
       </ul>
