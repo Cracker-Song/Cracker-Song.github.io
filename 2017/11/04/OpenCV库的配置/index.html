@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Liang&#39;s Blog">
 <meta property="og:description" content="OpenCV在Mac和Windows上的配置在Mac OS上配置OpenCV开发环境C++ with Xcode 使用brew安装OpenCV 1brew install opencv3  使用Cmake本地编译使用Git下载OpenCV下载源代码 12git clone https://github.com/Itseez/opencv.git --depth=1git clone https:/">
 <meta property="og:image" content="http://img.blog.csdn.net/20171212024219030?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY3JhY2tlcjE4MA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-12-11T19:45:07.957Z">
+<meta property="og:updated_time" content="2017-12-11T19:49:38.596Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OpenCV库的配置">
 <meta name="twitter:description" content="OpenCV在Mac和Windows上的配置在Mac OS上配置OpenCV开发环境C++ with Xcode 使用brew安装OpenCV 1brew install opencv3  使用Cmake本地编译使用Git下载OpenCV下载源代码 12git clone https://github.com/Itseez/opencv.git --depth=1git clone https:/">
@@ -131,13 +131,12 @@ var _hmt = _hmt || [];
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/Itseez/opencv.git --depth=1</div><div class="line">git clone https://github.com/Itseez/opencv_contrib --depth=1</div></pre></td></tr></table></figure>
 <p>下载<a href="https://cmake.org" target="_blank" rel="external">Cmake</a>合适版本<br><img src="http://img.blog.csdn.net/20171212024219030?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY3JhY2tlcjE4MA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""><br>Where is the source code选择OpenCV源代码文件夹<br>Where to build 选择输出文件夹<br>多次点击Configure直到没有红色选项（如果使用Xcode则选择Xcode）<br>完成后找到 OPENCV_EXTRA_MODULES_PATH 选项选择为所下载的 OpenCV-contrib文件夹下的 modules 文件夹<br>点击 Generate 开始编译<br>生成完成后在命令行中到达输出文件夹，运行</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">make -j4</div><div class="line">make install</div></pre></td></tr></table></figure>
-<p>在Xcode设置 Search Paths 中 Header path为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">/usr/local/include</div><div class="line">```  </div><div class="line"></div><div class="line">Libeary path 为</div></pre></td></tr></table></figure>
-<p>/usr/local/lib</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">  详细可参考[MacOS Sierra 使用CMake 編譯OpenCV 3.2 With Contrib (for C++)](https://ronaldzzz.blogspot.com/2017/05/macmacos-sierra-cmake-opencv-32-with.html)</div><div class="line">### Python</div></pre></td></tr></table></figure>
+<p>在Xcode设置 Search Paths 中<br>Header path为 /usr/local/include</p>
+<p>Libeary path 为 /usr/local/lib<br>详细可参考<a href="https://ronaldzzz.blogspot.com/2017/05/macmacos-sierra-cmake-opencv-32-with.html" target="_blank" rel="external">MacOS Sierra 使用CMake 編譯OpenCV 3.2 With Contrib (for C++)</a></p>
+<h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install opencv-contrib-python</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>pip install opencv-contrib-python<br>```<br>详细可参考<a href="https://pypi.python.org/pypi/opencv-contrib-python" target="_blank" rel="external">opencv-contrib-python</a></p>
+<p>详细可参考<a href="https://pypi.python.org/pypi/opencv-contrib-python" target="_blank" rel="external">opencv-contrib-python</a></p>
 <h2 id="在Windows上配置OpenCV开发环境"><a href="#在Windows上配置OpenCV开发环境" class="headerlink" title="在Windows上配置OpenCV开发环境"></a>在Windows上配置OpenCV开发环境</h2><h3 id="C-with-Visual-Studio-2013"><a href="#C-with-Visual-Studio-2013" class="headerlink" title="C++ with Visual Studio 2013"></a>C++ with Visual Studio 2013</h3><p>基本同Mac OS配置，下载Cmake及OpenCV源码<br>唯一不同在于在Configure 之前需要选择VS版本<br>在Generate生成完成后点击Open Project使用VS打开按F5编译工程，需要时间可能较长<br>编译完成后将<code>bin/build</code>加入系统环境变量</p>
 <p>注意在windows下使用Cmake生成时可能会出现ippicv下载错误，此时可以选择自行下载放入指定文件夹<br><a href="http://blog.csdn.net/kelvin_yan/article/details/53635641" target="_blank" rel="external">ippicv下载链接</a><br><a href="http://blog.csdn.net/hjl240/article/details/52002749" target="_blank" rel="external">具体可参考</a><br>在使用VS编译OpenCV项目时针对release模式和debug模式使用的dll文件不同，使用debug模式时所有dll文件均需要在文件名最后加一个d</p>
 
@@ -145,11 +144,11 @@ var _hmt = _hmt || [];
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://liangsong.top/2017/11/04/OpenCV库的配置/" data-id="cjb2lnqiw0002lafyh7rw6wct" class="article-share-link">分享到</a>
+        <a data-url="http://liangsong.top/2017/11/04/OpenCV库的配置/" data-id="cjb2lnqiw0002lafyh7rw6wct" class="article-share-link">Share</a>
       
 
       
-        <a href="http://liangsong.top/2017/11/04/OpenCV库的配置/#disqus_thread" class="article-comment-link">评论</a>
+        <a href="http://liangsong.top/2017/11/04/OpenCV库的配置/#disqus_thread" class="article-comment-link">Comments</a>
       
 
       
@@ -160,7 +159,7 @@ var _hmt = _hmt || [];
 <nav id="article-nav">
   
     <a href="/2017/11/04/2017阿里巴巴笔试校招附加题2-菜鸟仓库编号/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
+      <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
           2017阿里巴巴笔试校招附加题2-菜鸟仓库编号
@@ -170,7 +169,7 @@ var _hmt = _hmt || [];
   
   
     <a href="/2017/10/12/自建机器学习库-矩阵/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
+      <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">自建机器学习库-矩阵</div>
     </a>
   
@@ -197,7 +196,7 @@ var _hmt = _hmt || [];
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">5</span></li></ul>
     </div>
@@ -206,7 +205,7 @@ var _hmt = _hmt || [];
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">近期文章</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
@@ -237,7 +236,7 @@ var _hmt = _hmt || [];
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">友情链接</h3>
+    <h3 class="widget-title">Links</h3>
     <div class="widget">
       <ul>
         
@@ -280,7 +279,7 @@ var _hmt = _hmt || [];
 </nav>
   <!-- totop start -->
 <div id="totop">
-<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+<a title="totop"><img src="/img/scrollup.png"/></a>
 </div>
 
 <!-- totop end -->
