@@ -97,6 +97,228 @@ var _hmt = _hmt || [];
     <div class="outer">
       <section id="main">
   
+    <article id="post-统计学习方法-李航-第二章习题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/11/统计学习方法-李航-第二章习题/" class="article-date">
+  <time datetime="2017-03-11T10:37:29.000Z" itemprop="datePublished">2017-03-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/11/统计学习方法-李航-第二章习题/">统计学习方法 李航 第二章习题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="2-1Minsky和Papert指出：感知机因为是线性模型，所以不能表示复杂的函数，如异或。验证感知机为什么不能表示异或"><a href="#2-1Minsky和Papert指出：感知机因为是线性模型，所以不能表示复杂的函数，如异或。验证感知机为什么不能表示异或" class="headerlink" title="2.1Minsky和Papert指出：感知机因为是线性模型，所以不能表示复杂的函数，如异或。验证感知机为什么不能表示异或"></a>2.1Minsky和Papert指出：感知机因为是线性模型，所以不能表示复杂的函数，如异或。验证感知机为什么不能表示异或</h3><p>明显可知异或不具有线性可分性，由感知机定义可知，感知机不能表示异或。  </p>
+<h3 id="2-2模仿例题2-1，构建从训练数据集求感知机模型的例子"><a href="#2-2模仿例题2-1，构建从训练数据集求感知机模型的例子" class="headerlink" title="2.2模仿例题2.1，构建从训练数据集求感知机模型的例子"></a>2.2模仿例题2.1，构建从训练数据集求感知机模型的例子</h3><pre><code>import numpy as np  
+import matplotlib.pyplot as plt  
+
+class showPicture:  
+    def __init__(self,data,w,b):  
+        self.b = b  
+        self.w = w  
+        plt.figure(1)  
+        plt.title(&apos;Plot 1&apos;, size=14)  
+        plt.xlabel(&apos;x-axis&apos;, size=14)  
+        plt.ylabel(&apos;y-axis&apos;, size=14)  
+
+        xData = np.linspace(0, 5, 100)  
+        yData = self.expression(xData)  
+        plt.plot(xData, yData, color=&apos;r&apos;, label=&apos;y1 data&apos;)  
+
+        plt.scatter(data[0][0],data[0][1],s=50)  
+        plt.scatter(data[1][0],data[1][1],s=50)  
+        plt.scatter(data[2][0],data[2][1],marker=&apos;x&apos;,s=50,)  
+        plt.savefig(&apos;2d.png&apos;,dpi=75)  
+    def expression(self,x):  
+        y = (-self.b - self.w[0]*x)/self.w[1]  
+        return y  
+    def show(self):  
+        plt.show()  
+class perceptron:  
+    def __init__(self,x,y,a=1):  
+        self.x = x  
+        self.y = y  
+        self.w = np.zeros((x.shape[1],1))  
+        self.b = 0  
+        self.a = 1  
+    def sign(self,w,b,x):  
+        result = 0  
+        y = np.dot(x,w)+b  
+        return int(y)  
+    def train(self):  
+        flag = True  
+        length = len(self.x)  
+        while flag:  
+            count = 0  
+            for i in range(length):  
+                tmpY = self.sign(self.w,self.b,self.x[i,:])  
+                if tmpY*self.y[i]&lt;=0:  
+                    tmp = self.y[i]*self.a*self.x[i,:]  
+                    tmp = tmp.reshape(self.w.shape)  
+                    self.w = tmp +self.w  
+                    self.b = self.b + self.y[i]  
+                    count +=1  
+            if count == 0:  
+                flag = False  
+        return self.w,self.b   
+</code></pre><h3 id="2-3证明：样本集线性可分的充要条件是正实例点集所构成的凸壳和负实例点集构成的凸壳不相交"><a href="#2-3证明：样本集线性可分的充要条件是正实例点集所构成的凸壳和负实例点集构成的凸壳不相交" class="headerlink" title="2.3证明：样本集线性可分的充要条件是正实例点集所构成的凸壳和负实例点集构成的凸壳不相交"></a>2.3证明：样本集线性可分的充要条件是正实例点集所构成的凸壳和负实例点集构成的凸壳不相交</h3><p><img src="http://home.ustc.edu.cn/~sl9292/统计学习方法第二章.jpg" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://liangsong.top/2017/03/11/统计学习方法-李航-第二章习题/" data-id="cjch10er5000b8efyv2oewv2k" class="article-share-link">Share</a>
+      
+
+      
+        <a href="http://liangsong.top/2017/03/11/统计学习方法-李航-第二章习题/#disqus_thread" class="article-comment-link">Comments</a>
+      
+
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-统计学习方法-李航-第一章习题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/11/统计学习方法-李航-第一章习题/" class="article-date">
+  <time datetime="2017-03-11T10:37:24.000Z" itemprop="datePublished">2017-03-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/11/统计学习方法-李航-第一章习题/">统计学习方法 李航 第一章习题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-1说明伯努利模型的极大似然估计以及贝叶斯估计中的统计学习方法三要素。伯努利模型是定义在取值为0和1的随机变量上的概率分布。假设观测到的伯努利模型n次独立数据生成结果，其中k次的结果为1，这时可以用极大似然估计或贝叶斯估计来估计结果为1的概率。"><a href="#1-1说明伯努利模型的极大似然估计以及贝叶斯估计中的统计学习方法三要素。伯努利模型是定义在取值为0和1的随机变量上的概率分布。假设观测到的伯努利模型n次独立数据生成结果，其中k次的结果为1，这时可以用极大似然估计或贝叶斯估计来估计结果为1的概率。" class="headerlink" title="1.1说明伯努利模型的极大似然估计以及贝叶斯估计中的统计学习方法三要素。伯努利模型是定义在取值为0和1的随机变量上的概率分布。假设观测到的伯努利模型n次独立数据生成结果，其中k次的结果为1，这时可以用极大似然估计或贝叶斯估计来估计结果为1的概率。"></a>1.1说明伯努利模型的极大似然估计以及贝叶斯估计中的统计学习方法三要素。伯努利模型是定义在取值为0和1的随机变量上的概率分布。假设观测到的伯努利模型n次独立数据生成结果，其中k次的结果为1，这时可以用极大似然估计或贝叶斯估计来估计结果为1的概率。</h3><h4 id="用极大似然估计"><a href="#用极大似然估计" class="headerlink" title="用极大似然估计"></a>用极大似然估计</h4><p>$L(θ)=f(x_1,x_2,…x_n|θ)=C^k_nθ_k(1−θ)^{n−k}$<br>直接求一阶导数另其等于零<br>$k⋅θ^{k−1}(1−θ)^{n−k}−(n−k)θ^k(1−θ)^{n−k−1}=0$<br>$\hatθ_{ML}=arg$ $max_θL(θ|x)$<br>得到$0，1，k/n$ 三个解</p>
+<h4 id="用极大后验估计"><a href="#用极大后验估计" class="headerlink" title="用极大后验估计"></a>用极大后验估计</h4><p>$\hatθ_{MAP}=arg$ $max_θ\frac{P(X|θ)P(θ)}{P(X)}=arg$ $max_θlog[P(X|θ)P(θ)]=arg$ $max_θ(L(θ|X)+log(P(θ)))$<br>与最大似然估计相比，现在需要多加上一个先验分布概率的对数。在实际应用中，这个先验可以用来描述人们已经知道或者接受的普遍规律。例如在扔硬币的试验中，每次抛出正面发生的概率应该服从一个概率分布，这个概率在0.5处取得最大值，这个分布就是先验分布。先验分布的参数我们称为超参数。  </p>
+<h4 id="用贝叶斯估计"><a href="#用贝叶斯估计" class="headerlink" title="用贝叶斯估计"></a>用贝叶斯估计</h4><p>贝叶斯估计是在MAP上做进一步拓展，此时不直接估计参数的值，而是允许参数服从一定概率分布。<br>$P(\hatθ|X)=\int_{θ\in\Theta}P(\hat x|θ)P(θ|X)dθ=\int_{θ\in\Theta}P(\hat x|θ)\frac{P(X|θ)P(θ)}{P(X)}dθ$</p>
+<h3 id="1-2通过经验风险最小化推导极大似然估计，证明模型是条件概率分布，损失函数是对数损失函数时，经验风险最小化等价于极大似然估计"><a href="#1-2通过经验风险最小化推导极大似然估计，证明模型是条件概率分布，损失函数是对数损失函数时，经验风险最小化等价于极大似然估计" class="headerlink" title="1.2通过经验风险最小化推导极大似然估计，证明模型是条件概率分布，损失函数是对数损失函数时，经验风险最小化等价于极大似然估计"></a>1.2通过经验风险最小化推导极大似然估计，证明模型是条件概率分布，损失函数是对数损失函数时，经验风险最小化等价于极大似然估计</h3><p><img src="http://home.ustc.edu.cn/~sl9292/统计学习方法第一章.jpg" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://liangsong.top/2017/03/11/统计学习方法-李航-第一章习题/" data-id="cjch10er200098efy5ssl5g3i" class="article-share-link">Share</a>
+      
+
+      
+        <a href="http://liangsong.top/2017/03/11/统计学习方法-李航-第一章习题/#disqus_thread" class="article-comment-link">Comments</a>
+      
+
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-机器学习-周志华-第一章习题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/11/机器学习-周志华-第一章习题/" class="article-date">
+  <time datetime="2017-03-11T10:37:07.000Z" itemprop="datePublished">2017-03-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/11/机器学习-周志华-第一章习题/">机器学习 周志华 第一章习题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-表1-1中若只包含编号为1，4的两个样例，试给出相应的版本空间。"><a href="#1-表1-1中若只包含编号为1，4的两个样例，试给出相应的版本空间。" class="headerlink" title="1.表1.1中若只包含编号为1，4的两个样例，试给出相应的版本空间。"></a>1.表1.1中若只包含编号为1，4的两个样例，试给出相应的版本空间。</h3><p>假设数据集有n种属性，第i个属性可能的取值有ti种，加上该属性的泛化取值(*)，所以可能的假设有<br>$\prod_{i}(t_i+1)$<br>再用空集表示没有正例，假设空间中一共 $\prod_{i}(t_i+1)+1$ 种假设。<br>现实问题中常面临很大的假设空间，我们可以寻找一个与训练集一致的假设集合，称之为版本空间。版本空间从假设空间剔除了与正例不一致和与反例一致的假设，它可以看成是对正例的最大泛化。<br>版本空间的可以通过搜索假设空间来得到，这样需要遍历完整的假设空间。如果数据集中有正例，则可以先对一个正例进行最大泛化，得到2n个假设，然后再对这些假设进行剔除操作，可以适当精简计算量。<br>西瓜数据集（精简）  </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">编号</th>
+<th style="text-align:center">色泽</th>
+<th style="text-align:center">根蒂</th>
+<th style="text-align:center">敲声</th>
+<th style="text-align:center">好瓜</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">青绿</td>
+<td style="text-align:center">蜷缩</td>
+<td style="text-align:center">浊响</td>
+<td style="text-align:center">是</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">乌黑</td>
+<td style="text-align:center">稍蜷</td>
+<td style="text-align:center">沉闷</td>
+<td style="text-align:center">否</td>
+</tr>
+</tbody>
+</table>
+<p>数据集有3个属性，每个属性2种取值，一共 3∗3∗3+1=28种假设，分别为</p>
+<p>  1.色泽=青绿 根蒂=蜷缩 敲声=浊响<br>  2.色泽=青绿 根蒂=蜷缩 敲声=沉闷<br>  3.色泽=青绿 根蒂=稍蜷 敲声=浊响<br>  4.色泽=青绿 根蒂=稍蜷 敲声=沉闷<br>  5.色泽=乌黑 根蒂=蜷缩 敲声=浊响<br>  6.色泽=乌黑 根蒂=蜷缩 敲声=沉闷<br>  7.色泽=乌黑 根蒂=稍蜷 敲声=浊响<br>  8.色泽=乌黑 根蒂=稍蜷 敲声=沉闷<br>  9.色泽=青绿 根蒂=蜷缩 敲声=*<br>  10.色泽=青绿 根蒂=稍蜷 敲声=*<br>  11.色泽=乌黑 根蒂=蜷缩 敲声=*<br>  12.色泽=乌黑 根蒂=稍蜷 敲声=*<br>  13.色泽=青绿 根蒂=* 敲声=浊响<br>  14.色泽=青绿 根蒂=* 敲声=沉闷<br>  15.色泽=乌黑 根蒂=* 敲声=浊响<br>  16.色泽=乌黑 根蒂=* 敲声=沉闷<br>  17.色泽=* 根蒂=蜷缩 敲声=浊响<br>  18.色泽=* 根蒂=蜷缩 敲声=沉闷<br>  19.色泽=* 根蒂=稍蜷 敲声=浊响<br>  20.色泽=* 根蒂=稍蜷 敲声=沉闷<br>  21.色泽=青绿 根蒂=* 敲声=*<br>  22.色泽=乌黑 根蒂=* 敲声=*<br>  23.色泽=* 根蒂=蜷缩 敲声=*<br>  24.色泽=* 根蒂=稍蜷 敲声=*<br>  25.色泽=* 根蒂=* 敲声=浊响<br>  26.色泽=* 根蒂=* 敲声=沉闷<br>  27.色泽=* 根蒂=* 敲声=*<br>  28.空集Ø<br>编号1的数据可以删除 2−8，10−12，14−16，18−20，22，24，26，28(不包含数据1)<br>编号1的数据可以删除 27(包含了数据2)<br>所以样本空间为:<br>  1.色泽=青绿 根蒂=蜷缩 敲声=浊响<br>  9.色泽=青绿 根蒂=蜷缩 敲声=*<br>  13.色泽=青绿 根蒂=* 敲声=浊响<br>  17.色泽=* 根蒂=蜷缩 敲声=浊响<br>  21.色泽=青绿 根蒂=* 敲声=*<br>  23.色泽=* 根蒂=蜷缩 敲声=*<br>  25.色泽=* 根蒂=* 敲声=浊响   </p>
+<h3 id="2-与使用单个合取式来进行假设表示相比，使用“析合范式”将使得假设空间具有更强的表示能力。若使用最多包含k个合取式的析合范式来表达1-1的西瓜分类问题的假设空间，试估算有多少种可能的假设。"><a href="#2-与使用单个合取式来进行假设表示相比，使用“析合范式”将使得假设空间具有更强的表示能力。若使用最多包含k个合取式的析合范式来表达1-1的西瓜分类问题的假设空间，试估算有多少种可能的假设。" class="headerlink" title="2.与使用单个合取式来进行假设表示相比，使用“析合范式”将使得假设空间具有更强的表示能力。若使用最多包含k个合取式的析合范式来表达1.1的西瓜分类问题的假设空间，试估算有多少种可能的假设。"></a>2.与使用单个合取式来进行假设表示相比，使用“析合范式”将使得假设空间具有更强的表示能力。若使用最多包含k个合取式的析合范式来表达1.1的西瓜分类问题的假设空间，试估算有多少种可能的假设。</h3><p>样本空间包含4个样例，3种属性，假设空间中有3∗4∗4+1=49种假设。故共有 $C_{49}^{k}$ 种可能的析合范式。</p>
+<h3 id="3-若数据包含噪声，则假设空间中可能不存在与所有训练样本都一致的假设。在此情形下，试设计一种归纳偏好用于假设选择"><a href="#3-若数据包含噪声，则假设空间中可能不存在与所有训练样本都一致的假设。在此情形下，试设计一种归纳偏好用于假设选择" class="headerlink" title="3.若数据包含噪声，则假设空间中可能不存在与所有训练样本都一致的假设。在此情形下，试设计一种归纳偏好用于假设选择"></a>3.若数据包含噪声，则假设空间中可能不存在与所有训练样本都一致的假设。在此情形下，试设计一种归纳偏好用于假设选择</h3><p>可使用计算方法中矛盾方程组解法。  </p>
+<h3 id="4-本章1-4节在论述“没有免费的午餐”定理时，默认使用了“分类错误率”作为性能度量来对分类器进行评估。若换用其他性能度量l-试证明没有免费的午餐”定理仍成立"><a href="#4-本章1-4节在论述“没有免费的午餐”定理时，默认使用了“分类错误率”作为性能度量来对分类器进行评估。若换用其他性能度量l-试证明没有免费的午餐”定理仍成立" class="headerlink" title="4.本章1.4节在论述“没有免费的午餐”定理时，默认使用了“分类错误率”作为性能度量来对分类器进行评估。若换用其他性能度量l,试证明没有免费的午餐”定理仍成立"></a>4.本章1.4节在论述“没有免费的午餐”定理时，默认使用了“分类错误率”作为性能度量来对分类器进行评估。若换用其他性能度量l,试证明没有免费的午餐”定理仍成立</h3><p>$E_{ote}(£_a|X,f)=\sum_h\sum_{x\in\chi-X}P(\chi)A(h(x),f(x))P(h|X,£_a)$<br>其中 $A(h(x),f(x))$ 为性能度量函数，可见 $A(h(x),f(x))$ 只与真实目标函数$f$和假设$h$有关，而和算法产生假设$h$的概率无关，故对于不同算法依然有 $\sum_fE_{ote}(£_a|X,f)=\sum_fE_{ote}(£_b|X,f)$ 。<br>$Q.E.D$  </p>
+<h3 id="5-试述机器学习在互联网搜索的哪些环节起什么作用"><a href="#5-试述机器学习在互联网搜索的哪些环节起什么作用" class="headerlink" title="5.试述机器学习在互联网搜索的哪些环节起什么作用"></a>5.试述机器学习在互联网搜索的哪些环节起什么作用</h3><ol>
+<li>推荐系统</li>
+<li>相似图片搜索</li>
+<li>文件检索</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://liangsong.top/2017/03/11/机器学习-周志华-第一章习题/" data-id="cjch10er100088efyqo7n9v3k" class="article-share-link">Share</a>
+      
+
+      
+        <a href="http://liangsong.top/2017/03/11/机器学习-周志华-第一章习题/#disqus_thread" class="article-comment-link">Comments</a>
+      
+
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-about" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/03/11/about/" class="article-date">
@@ -125,7 +347,7 @@ var _hmt = _hmt || [];
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://liangsong.top/2017/03/11/about/" data-id="cjb2lnqix0003lafyn8pal7ke" class="article-share-link">Share</a>
+        <a data-url="http://liangsong.top/2017/03/11/about/" data-id="cjch10eqp00038efye9mge9qz" class="article-share-link">Share</a>
       
 
       
@@ -176,7 +398,7 @@ var _hmt = _hmt || [];
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://liangsong.top/2017/03/11/hello-world/" data-id="cjb2lnqj10005lafyjvp2j5ah" class="article-share-link">Share</a>
+        <a data-url="http://liangsong.top/2017/03/11/hello-world/" data-id="cjch10eqt00048efyer21o74s" class="article-share-link">Share</a>
       
 
       
@@ -210,7 +432,7 @@ var _hmt = _hmt || [];
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">5</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -222,23 +444,23 @@ var _hmt = _hmt || [];
       <ul>
         
           <li>
+            <a href="/2018/01/16/基于检测的多目标追踪/">基于检测的多目标追踪</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/19/论文笔记：Learning-to-Track-Online-Multi-Object-Tracking-by-Decision-Making/">论文笔记：Learning to Track- Online Multi-Object Tracking by Decision Making</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/13/机器学习-周志华-第二章习题/">机器学习-周志华-第二章习题</a>
+          </li>
+        
+          <li>
             <a href="/2017/12/12/论文笔记：A-Novel-Multi-Detector-Fusion-Framework-for-Multi-Object-Tracking/">论文笔记：A Novel Multi-Detector Fusion Framework for Multi-Object Tracking</a>
           </li>
         
           <li>
             <a href="/2017/12/08/Jupyter-notebook/">Jupyter notebook</a>
-          </li>
-        
-          <li>
-            <a href="/2017/11/11/使用kcf算法进行目标追踪/">使用kcf算法进行目标追踪</a>
-          </li>
-        
-          <li>
-            <a href="/2017/11/11/使用张正友方法进行相机标定/">使用张正友方法进行相机标定</a>
-          </li>
-        
-          <li>
-            <a href="/2017/11/04/2017阿里巴巴笔试校招附加题2-菜鸟仓库编号/">2017阿里巴巴笔试校招附加题2-菜鸟仓库编号</a>
           </li>
         
       </ul>
@@ -272,7 +494,7 @@ var _hmt = _hmt || [];
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 Liang Song<br>
+      &copy; 2018 Liang Song<br>
       Powered by <a href="//hexo.io/" target="_blank">Hexo</a><br>
       
 <script src="https://s4.cnzz.com/z_stat.php?id=1261478178&web_id=1261478178" language="JavaScript"></script>

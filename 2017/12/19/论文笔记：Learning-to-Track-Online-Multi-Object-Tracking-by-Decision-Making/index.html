@@ -4,18 +4,18 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>自建机器学习库-矩阵 | Liang&#39;s Blog</title>
+  <title>论文笔记：Learning to Track- Online Multi-Object Tracking by Decision Making | Liang&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="自制一个机器学习库-矩阵矩阵是机器学习中常用的内容，因此为了建立一个机器学习库，我们从矩阵开始。机器学习库源码类名为Matrix，使用模版类。1Matrix&amp;lt;T&amp;gt; tmp; 构造函数Matrix(); 无参数，一行，一列，只有一个默认元素。 Matrix(long eye); 行列均为eye的单位矩阵 Matrix(long col, long row, T ele = T());">
+  <meta name="description" content="论文笔记：Learning to Track- Online Multi-Object Tracking by Decision Making###">
 <meta property="og:type" content="article">
-<meta property="og:title" content="自建机器学习库-矩阵">
-<meta property="og:url" content="http://liangsong.top/2017/10/12/自建机器学习库-矩阵/index.html">
+<meta property="og:title" content="论文笔记：Learning to Track- Online Multi-Object Tracking by Decision Making">
+<meta property="og:url" content="http://liangsong.top/2017/12/19/论文笔记：Learning-to-Track-Online-Multi-Object-Tracking-by-Decision-Making/index.html">
 <meta property="og:site_name" content="Liang&#39;s Blog">
-<meta property="og:description" content="自制一个机器学习库-矩阵矩阵是机器学习中常用的内容，因此为了建立一个机器学习库，我们从矩阵开始。机器学习库源码类名为Matrix，使用模版类。1Matrix&amp;lt;T&amp;gt; tmp; 构造函数Matrix(); 无参数，一行，一列，只有一个默认元素。 Matrix(long eye); 行列均为eye的单位矩阵 Matrix(long col, long row, T ele = T());">
-<meta property="og:updated_time" content="2017-10-12T15:00:03.000Z">
+<meta property="og:description" content="论文笔记：Learning to Track- Online Multi-Object Tracking by Decision Making###">
+<meta property="og:updated_time" content="2017-12-19T10:39:50.735Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="自建机器学习库-矩阵">
-<meta name="twitter:description" content="自制一个机器学习库-矩阵矩阵是机器学习中常用的内容，因此为了建立一个机器学习库，我们从矩阵开始。机器学习库源码类名为Matrix，使用模版类。1Matrix&amp;lt;T&amp;gt; tmp; 构造函数Matrix(); 无参数，一行，一列，只有一个默认元素。 Matrix(long eye); 行列均为eye的单位矩阵 Matrix(long col, long row, T ele = T());">
+<meta name="twitter:title" content="论文笔记：Learning to Track- Online Multi-Object Tracking by Decision Making">
+<meta name="twitter:description" content="论文笔记：Learning to Track- Online Multi-Object Tracking by Decision Making###">
   
     <link rel="alternative" href="/atom.xml" title="Liang&#39;s Blog" type="application/atom+xml">
   
@@ -99,10 +99,10 @@ var _hmt = _hmt || [];
   </div>
 </header>
     <div class="outer">
-      <section id="main"><article id="post-自建机器学习库-矩阵" class="article article-type-post" itemscope itemprop="blogPost">
+      <section id="main"><article id="post-论文笔记：Learning-to-Track-Online-Multi-Object-Tracking-by-Decision-Making" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/10/12/自建机器学习库-矩阵/" class="article-date">
-  <time datetime="2017-10-12T14:23:57.000Z" itemprop="datePublished">2017-10-12</time>
+    <a href="/2017/12/19/论文笔记：Learning-to-Track-Online-Multi-Object-Tracking-by-Decision-Making/" class="article-date">
+  <time datetime="2017-12-19T10:36:03.000Z" itemprop="datePublished">2017-12-19</time>
 </a>
     
   </div>
@@ -113,7 +113,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      自建机器学习库-矩阵
+      论文笔记：Learning to Track- Online Multi-Object Tracking by Decision Making
     </h1>
   
 
@@ -121,110 +121,17 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="自制一个机器学习库-矩阵"><a href="#自制一个机器学习库-矩阵" class="headerlink" title="自制一个机器学习库-矩阵"></a>自制一个机器学习库-矩阵</h2><p>矩阵是机器学习中常用的内容，因此为了建立一个机器学习库，我们从矩阵开始。<br><a href="https://github.com/ML-Song/MachineLearning" target="_blank" rel="external">机器学习库源码</a><br>类名为Matrix，使用模版类。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Matrix&lt;T&gt; tmp;</div></pre></td></tr></table></figure></p>
-<h4 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h4><pre><code>Matrix();
-无参数，一行，一列，只有一个默认元素。
-Matrix(long eye);
-行列均为eye的单位矩阵
-Matrix(long col, long row, T ele = T());
-行列分别为col、row元素为默认值的矩阵
-Matrix(long col, long row, const T *input);
-行列分别为col、row元素为input数组中元素
-Matrix(vector&lt;T&gt; const &amp;input);
-一行的向量，元素为input
-Matrix(vector&lt;vector&lt;T&gt;&gt; const &amp;input);
-n行m列矩阵，元素为input中元素
-Matrix(Matrix&lt;T&gt; const &amp;m);
-与m相同的矩阵
-</code></pre><h4 id="矩阵输入输出"><a href="#矩阵输入输出" class="headerlink" title="矩阵输入输出"></a>矩阵输入输出</h4><pre><code>Status Show() const;
-打印矩阵内容
-vector&lt;vector&lt;T&gt;&gt; GetMat() const;
-以vector形式返回矩阵元素
-T Get(long i, long j) const;
-返回矩阵第i行第j列元素
-Status Set(long i, long j, T ele);
-设置矩阵第i行第j列元素为ele，改变原矩阵值
-long GetColumn() const;
-返回矩阵行数
-long GetRow() const;
-返回矩阵列数
-</code></pre><h4 id="矩阵基本运算"><a href="#矩阵基本运算" class="headerlink" title="矩阵基本运算"></a>矩阵基本运算</h4><p>以下均为改变原矩阵</p>
-<pre><code>Status SwitchColumn(long i1, long i2);
-交换i1行和i2行
-Status SwitchRow(long j1, long j2);
-交换j1列和j2列
-Status MultiplyColumn(long i, double multiplier);
-将矩阵i行乘以multiplier
-Status MultiplyRow(long j, double multiplier);
-将矩阵j列乘以multiplier
-Status AddColumn(long i1, double multiplier, long i2);
-将矩阵i1行乘以multiplier加到i2行
-Status AddRow(long j1, double multiplier, long j2);
-将矩阵j1列乘以multiplier加到j2列
-</code></pre><h4 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h4><pre><code>Matrix&lt;T&gt; operator=(Matrix&lt;T&gt; const &amp;m);
-矩阵赋值返回右值
-vector&lt;T&gt; operator[](long index) const;
-取第index行
-friend bool operator==(Matrix&lt;T&gt; const &amp;m1, Matrix&lt;T&gt; const &amp;m2)
-判断矩阵相等
-以下均为对应元素运算
-friend Matrix&lt;T&gt; operator+(Matrix&lt;T&gt; const &amp;m1, Matrix&lt;T&gt; const &amp;m2)
-矩阵加
-friend Matrix&lt;T&gt; operator*(T const &amp;m1, Matrix&lt;T&gt; const &amp;m2)
-数乘矩阵
-friend Matrix&lt;T&gt; operator-(Matrix&lt;T&gt; const &amp;m1, Matrix&lt;T&gt; const &amp;m2)
-矩阵减
-friend Matrix&lt;T&gt; operator*(Matrix&lt;T&gt; const &amp;m1, Matrix&lt;T&gt; const &amp;m2)
-矩阵乘
-friend Matrix&lt;T&gt; operator/(Matrix&lt;T&gt; const &amp;m1, Matrix&lt;T&gt; const &amp;m2)
-矩阵除
-Matrix&lt;T&gt; operator-() const;
-矩阵负
-</code></pre><h4 id="矩阵常用运算"><a href="#矩阵常用运算" class="headerlink" title="矩阵常用运算"></a>矩阵常用运算</h4><p>以下均不改变原矩阵值，返回一个新矩阵</p>
-<pre><code>Matrix&lt;T&gt; SubMatrix(long start_col, long end_col, long start_row, long end_row) const;
-返回一个子矩阵
-Matrix&lt;T&gt; Cofactor(long x, long y) const;
-返回去掉第x行和第y列的矩阵
-Matrix&lt;T&gt; RowEchelon(long *swap = nullptr) const;
-返回一个行阶梯形矩阵，其中可选参数swap为基本行运算次数
-Matrix&lt;T&gt; Cat(Matrix&lt;T&gt; const &amp;m) const;
-连接两个行数相同矩阵
-bool IsInversible() const;
-判断矩阵是否可逆
-double Det() const;
-矩阵的行列式
-Matrix&lt;T&gt; Transpose() const;
-矩阵的转置
-Matrix&lt;T&gt; Dot(Matrix&lt;T&gt; const &amp;m) const;
-矩阵点乘 *this*m
-Matrix&lt;T&gt; Inverse() const;
-求矩阵的逆
-T Tr() const;
-矩阵的迹
-long Rank() const;
-矩阵的秩
-double NormVector(long p) const;
-只有当矩阵为一行／列时可用，求p范数
-Matrix&lt;T&gt; Schmidt() const;
-施密特正交化
-Matrix&lt;T&gt; GramSchmidt() const;
-施密特单位正交化
-Matrix&lt;T&gt; QR() const;// return Q
-对矩阵进行QR分解返回Q矩阵
-vector&lt;T&gt; Eigen() const;
-返回矩阵特征值
-Matrix&lt;T&gt; Shuffle() const;
-将矩阵按行随机排列
-</code></pre>
+        <h2 id="论文笔记：Learning-to-Track-Online-Multi-Object-Tracking-by-Decision-Making"><a href="#论文笔记：Learning-to-Track-Online-Multi-Object-Tracking-by-Decision-Making" class="headerlink" title="论文笔记：Learning to Track- Online Multi-Object Tracking by Decision Making"></a>论文笔记：Learning to Track- Online Multi-Object Tracking by Decision Making</h2><p>###</p>
+
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://liangsong.top/2017/10/12/自建机器学习库-矩阵/" data-id="cjch10er6000c8efyl3sb9gsv" class="article-share-link">Share</a>
+        <a data-url="http://liangsong.top/2017/12/19/论文笔记：Learning-to-Track-Online-Multi-Object-Tracking-by-Decision-Making/" data-id="cjch10er9000e8efyaw2de8q2" class="article-share-link">Share</a>
       
 
       
-        <a href="http://liangsong.top/2017/10/12/自建机器学习库-矩阵/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://liangsong.top/2017/12/19/论文笔记：Learning-to-Track-Online-Multi-Object-Tracking-by-Decision-Making/#disqus_thread" class="article-comment-link">Comments</a>
       
 
       
@@ -234,19 +141,19 @@ Matrix&lt;T&gt; Shuffle() const;
     
 <nav id="article-nav">
   
-    <a href="/2017/11/04/OpenCV库的配置/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/01/16/基于检测的多目标追踪/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          OpenCV库的配置
+          基于检测的多目标追踪
         
       </div>
     </a>
   
   
-    <a href="/2017/03/11/统计学习方法-李航-第二章习题/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/12/13/机器学习-周志华-第二章习题/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">统计学习方法 李航 第二章习题</div>
+      <div class="article-nav-title">机器学习-周志华-第二章习题</div>
     </a>
   
 </nav>
@@ -363,7 +270,7 @@ Matrix&lt;T&gt; Shuffle() const;
 <script>
   var disqus_shortname = 'liangsong';
   
-  var disqus_url = 'http://liangsong.top/2017/10/12/自建机器学习库-矩阵/';
+  var disqus_url = 'http://liangsong.top/2017/12/19/论文笔记：Learning-to-Track-Online-Multi-Object-Tracking-by-Decision-Making/';
   
   (function(){
     var dsq = document.createElement('script');
